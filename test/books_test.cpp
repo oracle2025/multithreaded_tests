@@ -56,7 +56,7 @@ TEST(BooksTest, concurrent)
 TEST(BooksTest, concurrent_runsinthreads)
 {
     atomic_int overlaps {0};
-	RunsInThreads<atomic_int> rit(overlaps, 1000);
+	RunsInThreads<atomic_int> rit(overlaps, 10);
     Books books;
 	EXPECT_TRUE(rit.matches([&books](atomic_int& t){
         	ostringstream str;
